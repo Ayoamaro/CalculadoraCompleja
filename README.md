@@ -25,6 +25,6 @@ El funcionamiento será el siguiente:
 2. Se introducen los valores de primer y segundo operando complejos.
 3. Se pulsa el botón "=", apareciendo el resultado en los campos de la parte inferior.
 
-MEJORA: Quitar el botón "=" y usar Bindings, de forma que cuando se seleccione una operación en la lista desplegable, se generan los bindings automáticamente.
+**MEJORA: Quitar el botón "=" y usar Bindings, de forma que cuando se seleccione una operación en la lista desplegable, se generan los bindings automáticamente.**
 
 ![](https://github.com/Ayoamaro/CalculadoraCompleja/blob/main/docs/images/calculadora_compleja(3).png?raw=true)
