@@ -36,125 +36,128 @@ public class AppCalculaFX extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-	// Primer Número
-	HBox num1Box = new HBox(5);
-	aReal = new TextField("0");
-	aReal.setPrefColumnCount(3);
-	aReal.setAlignment(Pos.CENTER);
-	aImaginario = new TextField("0");
-	aImaginario.setPrefColumnCount(3);
-	aImaginario.setAlignment(Pos.CENTER);
-	// Símbolos
-	aRealLabel = new Label("+");
-	aImaginarioLabel = new Label("i");
+		// Primer Número
+		HBox num1Box = new HBox(5);
+		aReal = new TextField("0");
+		aReal.setPrefColumnCount(3);
+		aReal.setAlignment(Pos.CENTER);
+		aImaginario = new TextField("0");
+		aImaginario.setPrefColumnCount(3);
+		aImaginario.setAlignment(Pos.CENTER);
+		// Símbolos
+		aRealLabel = new Label("+");
+		aImaginarioLabel = new Label("i");
 
-	num1Box.getChildren().addAll(aReal, aRealLabel, aImaginario, aImaginarioLabel);
-	num1Box.setSpacing(5);
-	num1Box.setAlignment(Pos.CENTER);
+		num1Box.getChildren().addAll(aReal, aRealLabel, aImaginario, aImaginarioLabel);
+		num1Box.setSpacing(5);
+		num1Box.setAlignment(Pos.CENTER);
 
-	// Segundo Número
-	HBox num2Box = new HBox();
-	bReal = new TextField("0");
-	bReal.setPrefColumnCount(3);
-	bReal.setAlignment(Pos.CENTER);
-	bImaginario = new TextField("0");
-	bImaginario.setPrefColumnCount(3);
-	bImaginario.setAlignment(Pos.CENTER);
-	// Símbolos
-	bRealLabel = new Label("+");
-	bImaginarioLabel = new Label("i");
+		// Segundo Número
+		HBox num2Box = new HBox();
+		bReal = new TextField("0");
+		bReal.setPrefColumnCount(3);
+		bReal.setAlignment(Pos.CENTER);
+		bImaginario = new TextField("0");
+		bImaginario.setPrefColumnCount(3);
+		bImaginario.setAlignment(Pos.CENTER);
+		// Símbolos
+		bRealLabel = new Label("+");
+		bImaginarioLabel = new Label("i");
 
-	num2Box.getChildren().addAll(bReal, bRealLabel, bImaginario, bImaginarioLabel);
-	num2Box.setAlignment(Pos.CENTER);
-	num2Box.setSpacing(5);
+		num2Box.getChildren().addAll(bReal, bRealLabel, bImaginario, bImaginarioLabel);
+		num2Box.setAlignment(Pos.CENTER);
+		num2Box.setSpacing(5);
 
-	// Separador
-	separator = new Separator();
+		// Separador
+		separator = new Separator();
 
-	// Resultado
-	HBox resultBox = new HBox(5);
-	resultReal = new TextField("0");
-	resultReal.setPrefColumnCount(3);
-	resultReal.setDisable(true);
-	resultReal.setAlignment(Pos.CENTER);
-	resultImaginario = new TextField("0");
-	resultImaginario.setPrefColumnCount(3);
-	resultImaginario.setDisable(true);
-	resultImaginario.setAlignment(Pos.CENTER);
-	// Símbolos
-	resultRealLabel = new Label("+");
-	resultImaginarioLabel = new Label("i");
+		// Resultado
+		HBox resultBox = new HBox(5);
+		resultReal = new TextField("0");
+		resultReal.setPrefColumnCount(3);
+		resultReal.setDisable(true);
+		resultReal.setAlignment(Pos.CENTER);
+		resultImaginario = new TextField("0");
+		resultImaginario.setPrefColumnCount(3);
+		resultImaginario.setDisable(true);
+		resultImaginario.setAlignment(Pos.CENTER);
+		// Símbolos
+		resultRealLabel = new Label("+");
+		resultImaginarioLabel = new Label("i");
 
-	resultBox.getChildren().addAll(resultReal, resultRealLabel, resultImaginario, resultImaginarioLabel);
-	resultBox.setSpacing(5);
-	resultBox.setAlignment(Pos.CENTER);
+		resultBox.getChildren().addAll(resultReal, resultRealLabel, resultImaginario, resultImaginarioLabel);
+		resultBox.setSpacing(5);
+		resultBox.setAlignment(Pos.CENTER);
 
-	// VBox con números
-	VBox numBox = new VBox(5);
-	numBox.getChildren().addAll(num1Box, num2Box, separator, resultBox);
-	numBox.setAlignment(Pos.CENTER);
+		// VBox con números
+		VBox numBox = new VBox(5);
+		numBox.getChildren().addAll(num1Box, num2Box, separator, resultBox);
+		numBox.setAlignment(Pos.CENTER);
 
-	// ComboBox con las operaciones
-	Combo = new ComboBox<String>();
-	Combo.getItems().addAll("+", "-", "*", "/");
+		// ComboBox con las operaciones
+		Combo = new ComboBox<String>();
+		Combo.getItems().addAll("+", "-", "*", "/");
 
-	// VBox con ComboBox
-	VBox operationBox = new VBox(5);
-	operationBox.getChildren().add(Combo);
-	operationBox.setAlignment(Pos.CENTER);
+		// VBox con ComboBox
+		VBox operationBox = new VBox(5);
+		operationBox.getChildren().add(Combo);
+		operationBox.setAlignment(Pos.CENTER);
 
-	// VBox principal
-	HBox root = new HBox(5);
-	root.getChildren().addAll(operationBox, numBox);
-	root.setAlignment(Pos.CENTER);
+		// VBox principal
+		HBox root = new HBox(5);
+		root.getChildren().addAll(operationBox, numBox);
+		root.setAlignment(Pos.CENTER);
 
-	Scene scene = new Scene(root, 320, 200);
+		Scene scene = new Scene(root, 320, 200);
 		
-	primaryStage.setScene(scene);
-	primaryStage.setTitle("CalculadoraView");
-	primaryStage.show();
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("CalculadoraView");
+		primaryStage.show();
 		
-	// Binding primer operación
-	Bindings.bindBidirectional(aReal.textProperty(), primerReal, new NumberStringConverter());
-	Bindings.bindBidirectional(aImaginario.textProperty(), primerImaginario, new NumberStringConverter());
+		// Binding primer operación
+		Bindings.bindBidirectional(aReal.textProperty(), primerReal, new NumberStringConverter());
+		Bindings.bindBidirectional(aImaginario.textProperty(), primerImaginario, new NumberStringConverter());
 		
-	// Binding segunda operación
-	Bindings.bindBidirectional(bReal.textProperty(), segundoReal, new NumberStringConverter());
-	Bindings.bindBidirectional(bImaginario.textProperty(), segundoImaginario, new NumberStringConverter());
+		// Binding segunda operación
+		Bindings.bindBidirectional(bReal.textProperty(), segundoReal, new NumberStringConverter());
+		Bindings.bindBidirectional(bImaginario.textProperty(), segundoImaginario, new NumberStringConverter());
 
-	// Binding resultado
-	Bindings.bindBidirectional(resultReal.textProperty(), finalReal, new NumberStringConverter());
-	Bindings.bindBidirectional(resultImaginario.textProperty(), finalImaginario, new NumberStringConverter());
+		// Binding resultado
+		Bindings.bindBidirectional(resultReal.textProperty(), finalReal, new NumberStringConverter());
+		Bindings.bindBidirectional(resultImaginario.textProperty(), finalImaginario, new NumberStringConverter());
 
-	Combo.valueProperty().addListener(e -> {
+		Combo.valueProperty().addListener(e -> {
 			
-	// Escogemos el valor del ComboBox
-	String seleccion = Combo.getValue();
-	switch (seleccion) {
-		// Suma
-	        case "+":  
-	        	finalReal.bind(primerReal.add(primerImaginario));
-	    		finalImaginario.bind(segundoReal.add(segundoImaginario));
-	       	 	break;
-	        // Resta
-	        case "-": 
-	        	finalReal.bind(primerReal.subtract(primerImaginario));
+			// Escogemos el valor del ComboBox
+			String seleccion = Combo.getValue();
+			switch (seleccion) 
+	        {
+	            // Suma
+	        	case "+":  
+	            	finalReal.bind(primerReal.add(primerImaginario));
+	    			finalImaginario.bind(segundoReal.add(segundoImaginario));
+	                break;
+	            // Resta
+	        	case "-": 
+	            	finalReal.bind(primerReal.subtract(primerImaginario));
 	            	finalImaginario.bind(segundoReal.subtract(segundoImaginario));
 	            	break;
-	        // Multiplicación
-	        case "*": 
+	            // Multiplicación
+	        	case "*": 
 	            	finalReal.bind(primerReal.multiply(segundoReal).subtract(primerImaginario.multiply(segundoImaginario)));
 	            	finalImaginario.bind(primerReal.multiply(segundoImaginario).add(segundoReal.multiply(primerImaginario)));
 	            	break;
-	        // División
-	        case "/":
+	            // División
+	        	case "/":
 	            	finalReal.bind(((primerReal.multiply(segundoReal).add(primerImaginario.multiply(segundoImaginario)))
 						.divide(segundoReal.multiply(segundoReal).add(segundoReal.multiply(segundoReal)))));
 	            	finalImaginario.bind(((segundoReal.multiply(primerImaginario).subtract(primerReal.multiply(segundoImaginario)))
 	            		.divide(segundoReal.multiply(segundoReal).add(segundoReal.multiply(segundoReal)))));
 	            	break;
-	}		
-	});	
+	        }
+			
+		});
+		
 	}
 	
 	public static void main(String[] args) {
