@@ -130,31 +130,30 @@ public class AppCalculaFX extends Application {
 			
 			// Escogemos el valor del ComboBox
 			String seleccion = Combo.getValue();
-			switch (seleccion) 
-	        {
-	            // Suma
+			switch (seleccion) {
+	            	// Suma
 	        	case "+":  
-	            	finalReal.bind(primerReal.add(primerImaginario));
+	            		finalReal.bind(primerReal.add(primerImaginario));
 	    			finalImaginario.bind(segundoReal.add(segundoImaginario));
-	                break;
-	            // Resta
+	                	break;
+	            	// Resta
 	        	case "-": 
-	            	finalReal.bind(primerReal.subtract(primerImaginario));
-	            	finalImaginario.bind(segundoReal.subtract(segundoImaginario));
-	            	break;
-	            // Multiplicación
+	            		finalReal.bind(primerReal.subtract(primerImaginario));
+	            		finalImaginario.bind(segundoReal.subtract(segundoImaginario));
+	            		break;
+	            	// Multiplicación
 	        	case "*": 
-	            	finalReal.bind(primerReal.multiply(segundoReal).subtract(primerImaginario.multiply(segundoImaginario)));
-	            	finalImaginario.bind(primerReal.multiply(segundoImaginario).add(segundoReal.multiply(primerImaginario)));
-	            	break;
-	            // División
+	            		finalReal.bind(primerReal.multiply(segundoReal).subtract(primerImaginario.multiply(segundoImaginario)));
+	            		finalImaginario.bind(primerReal.multiply(segundoImaginario).add(segundoReal.multiply(primerImaginario)));
+	            		break;
+	            	// División
 	        	case "/":
-	            	finalReal.bind(((primerReal.multiply(segundoReal).add(primerImaginario.multiply(segundoImaginario)))
-						.divide(segundoReal.multiply(segundoReal).add(segundoReal.multiply(segundoReal)))));
-	            	finalImaginario.bind(((segundoReal.multiply(primerImaginario).subtract(primerReal.multiply(segundoImaginario)))
-	            		.divide(segundoReal.multiply(segundoReal).add(segundoReal.multiply(segundoReal)))));
-	            	break;
-	        }
+	            		finalReal.bind(((primerReal.multiply(segundoReal).add(primerImaginario.multiply(segundoImaginario)))
+					.divide(segundoReal.multiply(segundoReal).add(segundoReal.multiply(segundoReal)))));
+	            		finalImaginario.bind(((segundoReal.multiply(primerImaginario).subtract(primerReal.multiply(segundoImaginario)))
+	            			.divide(segundoReal.multiply(segundoReal).add(segundoReal.multiply(segundoReal)))));
+	            		break;
+	        	}
 			
 		});
 		
